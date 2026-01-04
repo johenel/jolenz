@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import { router } from "./router.tsx";
 import { RouterProvider } from "react-router-dom";
 import Modal from '@/components/utils/Modal';
+import ToastContainer from "@/components/utils/ToastContainer";
 
 const AppInitializer = ({ children }: { children: React.ReactNode }) => {
     return <>{children}</>
@@ -16,6 +17,7 @@ if (container) {
             <AppInitializer>
                 <RouterProvider router={router}></RouterProvider>
                 <Modal></Modal>
+                <ToastContainer></ToastContainer>
             </AppInitializer>
         </React.StrictMode>
     );
