@@ -26,6 +26,7 @@ export default function Login({ onSwitchToRegister }: LoginProps) {
           'X-CSRF-TOKEN': token || '', 
         },
         body: JSON.stringify({ email, password }),
+        credentials: 'include',
       });
 
       if (response.ok) {

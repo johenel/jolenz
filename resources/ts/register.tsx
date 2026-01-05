@@ -19,6 +19,7 @@ function Register() {
           "X-CSRF-TOKEN": token || "",
         },
         body: JSON.stringify({ name, email, password, password_confirmation: password }),
+        credentials: 'include',
       });
 
       if (response.ok) {
