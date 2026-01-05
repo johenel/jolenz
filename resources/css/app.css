@@ -3,3 +3,10 @@
 body {
     @apply bg-gray-100;
 }
+
+.logo-title {
+    font-family: "Darumadrop One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.5rem;
+}

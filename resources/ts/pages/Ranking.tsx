@@ -1,16 +1,14 @@
 import React from 'react';
-import {useModalStore} from "@/stores/modalStore";
-import {useToastStore} from "@/stores/toastStore";
 import MainLayout from "@/components/layouts/MainLayout";
 
-const Home = () => {
+const Rankings = () => {
     return (
         <MainLayout>
             <div>
-                Homepage
+                Rankings
             </div>
         </MainLayout>
     );
 }
 
-export default Home;
+export default Rankings;
