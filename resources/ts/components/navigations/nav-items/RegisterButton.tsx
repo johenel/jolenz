@@ -1,14 +1,14 @@
 import { useEffect, useRef, useState } from 'react'
 import { useNavigationStore } from '@/stores/navigationStore'
 
-export default function LoginButton() {
+export default function RegisterButton() {
     const [open, setOpen] = useState(false)
     const [animate, setAnimate] = useState(false)
     const ref = useRef<HTMLDivElement>(null)
 
     const toggleAuth = useNavigationStore((s) => s.toggleAuth)
 
-    // Close on outside click
+        // Close on outside click
     useEffect(() => {
         const handler = (e: MouseEvent) => {
             if (ref.current && !ref.current.contains(e.target as Node)) {
@@ -21,14 +21,14 @@ export default function LoginButton() {
         return () => document.removeEventListener('mousedown', handler)
     }, [])
 
-    // Trigger animations
     useEffect(() => {
         if (open) {
             requestAnimationFrame(() => setAnimate(true))
         }
     }, [open])
 
-    return (
+
+     return (
         <div ref={ref} className="relative">
             <button
                 onClick={() => {
@@ -41,7 +41,7 @@ export default function LoginButton() {
                 }}
                 className="px-4 py-2 rounded-full border border-gray-300 text-sm hover:bg-gray-100 transition"
             >
-                Login
+                Register
             </button>
 
             {open && (
@@ -62,6 +62,15 @@ export default function LoginButton() {
                         className="space-y-3"
                     >
                         <div>
+                            <label className="flex justify-start items-center gap-3 text-xs text-gray-500">Name</label>
+                            <input
+                                type="email"
+                                required
+                                className="w-full mt-1 px-3 py-2 border rounded-lg text-sm outline-none focus:ring-2 focus:ring-black"
+                            />
+                        </div>
+
+                        <div>
                             <label className="flex justify-start items-center gap-3 text-xs text-gray-500">Email</label>
                             <input
                                 type="email"
@@ -81,17 +90,24 @@ export default function LoginButton() {
                             />
                         </div>
 
-                        <div className="flex items-center justify-between text-xs">
-                            <label className="flex items-center gap-2">
-                                <input type="checkbox" />
-                                Remember me
+                        <div>
+                            <label className="flex justify-start items-center gap-3 text-xs text-gray-500">
+                                Confirm Password
                             </label>
+                            <input
+                                type="password"
+                                required
+                                className="w-full mt-1 px-3 py-2 border rounded-lg text-sm outline-none focus:ring-2 focus:ring-black"
+                            />
+                        </div>
 
+                        <div className="flex items-center justify-between text-xs">
+                            <span>Already have an account?</span>
                             <button
                                 type="button"
                                 className="text-blue-600 hover:underline"
                             >
-                                Register
+                                Login
                             </button>
                         </div>
 
@@ -99,7 +115,7 @@ export default function LoginButton() {
                             type="submit"
                             className="w-full py-2 bg-black text-white rounded-lg text-sm hover:bg-gray-800 transition"
                         >
-                            Login
+                            Register
                         </button>
                     </form>
                 </div>

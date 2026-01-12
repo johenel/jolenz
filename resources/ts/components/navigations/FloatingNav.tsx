@@ -11,6 +11,8 @@ import { useNavigationStore } from '@/stores/navigationStore'
 import LoginButton from '@/components/navigations/nav-items/LoginButton'
 import NotificationButton from '@/components/navigations/nav-items/NotificationButton'
 import UserAvatar from '@/components/navigations/nav-items/UserAvatar'
+import Register from '@/register'
+import RegisterButton from './nav-items/RegisterButton'
 
 type NavItem = {
     name: string
@@ -84,6 +86,7 @@ export default function FloatingNav() {
                 {/* 3️⃣ Auth Section */}
                 <div className="flex items-center gap-3">
                     {!isAuthenticated && <LoginButton />}
+                    {!isAuthenticated && <RegisterButton />}
                     {isAuthenticated && (
                         <>
                             <NotificationButton />
