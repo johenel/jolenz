@@ -8,3 +8,10 @@ body {
   margin-top: 6rem;
   font-family: system-ui, sans-serif;
 }
+
+.logo-title {
+    font-family: "Darumadrop One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.5rem;
+}

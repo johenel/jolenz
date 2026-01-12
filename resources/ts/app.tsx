@@ -1,23 +1,24 @@
 import React, { useState } from 'react';
 import { createRoot } from 'react-dom/client'
-import Login from './login'
-import Register from './register';
+import { router } from "./router.tsx";
+import { RouterProvider } from "react-router-dom";
+import Modal from '@/components/utils/Modal';
+import ToastContainer from "@/components/utils/ToastContainer";
 
-const App = () => {
-    const [page, setPage] = useState<'login' | 'register'>('login'); // used to switch pages
-
-    return (
-        <div style={{ padding: '2rem' }}>
-            <h1>Laravel + React + TypeScript 🚀</h1>
-            
-            {page === 'login' && <Login onSwitchToRegister={() => setPage('register')} />}
-            {page === 'register' && <Register />}
-        </div>
-    )
+const AppInitializer = ({ children }: { children: React.ReactNode }) => {
+    return <>{children}</>
 }
 
 const container = document.getElementById('app')
 
 if (container) {
-    createRoot(container).render(<App />)
+    createRoot(container).render(
+        <React.StrictMode>
+            <AppInitializer>
+                <RouterProvider router={router}></RouterProvider>
+                <Modal></Modal>
+                <ToastContainer></ToastContainer>
+            </AppInitializer>
+        </React.StrictMode>
+    );
 }

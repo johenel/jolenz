@@ -7,7 +7,11 @@
         <title>{{ config('app.name', 'Laravel') }}</title>
         @viteReactRefresh
         @vite(['resources/css/app.css', 'resources/ts/app.tsx'])
-        
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Darumadrop+One&display=swap" rel="stylesheet">
     </head>
     <body>
         <div id="app"></div>
